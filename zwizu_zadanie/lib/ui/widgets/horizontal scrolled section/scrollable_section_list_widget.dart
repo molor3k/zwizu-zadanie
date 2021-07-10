@@ -11,7 +11,7 @@ class ScrollableSectionList extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         return Container(
-            height: 200,
+            height: kHorizontalListHeight,
             child: ListView.separated(
                 padding: EdgeInsets.only(left: 16.0),
                 scrollDirection: Axis.horizontal,
@@ -20,13 +20,7 @@ class ScrollableSectionList extends StatelessWidget {
                     width: 10,
                 ),
                 itemBuilder: (context, index) {
-                    return Column(
-                        children: [
-                            this.card!,
-                            Text("John Doe"),
-                            Text("Champion"),
-                        ],
-                    );
+                    return this.card!;
                 }
             )
         );

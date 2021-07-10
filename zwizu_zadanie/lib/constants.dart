@@ -9,3 +9,4 @@ const kColors = {
 };
 
 const kAppPadding = EdgeInsets.all(16.0);
+const kHorizontalListHeight = 300.0;

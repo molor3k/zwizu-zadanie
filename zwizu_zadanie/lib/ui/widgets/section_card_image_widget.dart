@@ -10,9 +10,10 @@ class SectionCardImage extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         return Container(
+            height: 200,
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10.0))
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
             ),
             child: Image.asset(
                 this.image!,

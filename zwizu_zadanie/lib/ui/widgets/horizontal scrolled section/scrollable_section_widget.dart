@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:zwizu_zadanie/constants.dart';
+import 'package:zwizu_zadanie/ui/widgets/cards/player_card_widget.dart';
 import 'package:zwizu_zadanie/ui/widgets/horizontal%20scrolled%20section/scrollable_section_list_widget.dart';
 import 'package:zwizu_zadanie/ui/widgets/horizontal%20scrolled%20section/scrollable_section_top_widget.dart';
-import 'package:zwizu_zadanie/ui/widgets/section_card_widget.dart';
+import 'package:zwizu_zadanie/ui/widgets/section_card_image_widget.dart';
 
 class ScrollableSection extends StatelessWidget {
     final String? topText;
+    final Widget? card;
     const ScrollableSection({ 
         Key? key,
-        @required this.topText
+        @required this.topText,
+        @required this.card,
     }) : super(key: key);
 
     @override
@@ -22,9 +25,7 @@ class ScrollableSection extends StatelessWidget {
                             text: topText
                         ),
                         ScrollableSectionList(
-                            card: SectionCard(
-                                image: "assets/images/player_small.jpg"
-                            )
+                            card: this.card!
                         )
                     ],
                 )
