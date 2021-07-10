@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zwizu_zadanie/constants.dart';
-import 'package:zwizu_zadanie/ui/widgets/horizontal%20scrolled%20section/text_arrow_button_widget.dart';
+import 'package:zwizu_zadanie/ui/widgets/horizontal_scrollable_section/text_arrow_button_widget.dart';
+
 
 class ScrollableSectionTop extends StatelessWidget {
     final String? text;

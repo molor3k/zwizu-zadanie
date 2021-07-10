@@ -5,10 +5,30 @@ class PromoContainer extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         return Container(
-            padding: kAppPadding,
-            height: 100,
-            width: 100,
-            color: Colors.white,
+            margin: kAppPadding,
+            height: kPromoContainerHeight,
+            width: double.infinity,
+            clipBehavior: Clip.antiAlias,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                color: Colors.white,
+            ),
+            child: Column(
+                children: [
+                    Expanded(
+                        flex: 3,
+                        child: Container(
+                            color: kColors["black"],
+                        )
+                    ),
+                    Expanded(
+                        flex: 2,
+                        child: Container(
+                            color: kColors["yellow"],
+                        )
+                    ),
+                ],
+            ),
         );
     }
 }

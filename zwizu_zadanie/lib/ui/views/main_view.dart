@@ -13,17 +13,36 @@ class MainView extends StatelessWidget {
                 physics: BouncingScrollPhysics(),
                 slivers: [
                     SliverToBoxAdapter(
+                        // child: Container(
+                        //     height: 500,
+                        //     decoration: BoxDecoration(
+                        //         image: DecorationImage(
+                        //             image: ExactAssetImage("assets/images/tournament.jpg"),
+                        //             fit: BoxFit.cover,
+                        //         )
+                        //     ),
+                        //     child: Container(
+                        //         margin: EdgeInsets.only(top: 255),
+                        //         child: PromoContainer(),
+                        //     )
+                        // ),
+                        
+                        
                         child: Stack(
+                            clipBehavior: Clip.none,
+                            // fit: StackFit.expand,
                             children: [
                                 Container(
+                                    clipBehavior: Clip.none,
                                     height: 500,
                                     child: Image.asset(
                                         "assets/images/tournament.jpg",
                                         fit: BoxFit.cover,
                                     )
                                 ),
-                                Positioned(
-                                    top: 255,
+                                Container(
+                                    clipBehavior: Clip.none,
+                                    margin: EdgeInsets.only(top: 255),
                                     child: PromoContainer()
                                 )
                             ],
