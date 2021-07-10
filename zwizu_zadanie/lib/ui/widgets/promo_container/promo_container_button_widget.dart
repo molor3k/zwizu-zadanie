@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zwizu_zadanie/constants.dart';
+import 'package:zwizu_zadanie/ui/text_styles.dart';
 
 class PromoContainerButton extends StatelessWidget {
     final String? text;
@@ -12,13 +13,6 @@ class PromoContainerButton extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
-        final styleBuy = TextStyle(
-            fontFamily: "Silka",
-            fontWeight: FontWeight.w600,
-            fontSize: 17,
-            color: this.isOutlined! ? kColors["black"] : kColors["yellow"]
-        );
-
         return Expanded(
             flex: 1,
             child: Container(
@@ -27,14 +21,15 @@ class PromoContainerButton extends StatelessWidget {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     border: Border.all(
-                        color: this.isOutlined! ? kColors["black"]! : Colors.transparent
+                        color: this.isOutlined! ? kColors["black"]! : Colors.transparent,
+                        width: 2.0
                     ),
                     color: this.isOutlined! ? Colors.transparent : kColors["black"]
                 ),
                 child: Text(
                     this.text!,
                     textAlign: TextAlign.center,
-                    style: styleBuy
+                    style: this.isOutlined! ? styleButtonOutlined : styleButtonFilled
                 )
             )
         );

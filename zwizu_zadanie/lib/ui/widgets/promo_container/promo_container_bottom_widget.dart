@@ -27,11 +27,11 @@ class PromoContainerBottom extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                                 PromoContainerButton(
-                                    text: "Koupit ZZP",
+                                    text: kTexts["tickets_buy"],
                                     isOutlined: false,
                                 ),
                                 PromoContainerButton(
-                                    text: "Vstupenky",
+                                    text: kTexts["tickets"],
                                     isOutlined: true,
                                 ),
                             ],

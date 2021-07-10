@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:zwizu_zadanie/backend/providers/promo_info_provider.dart';
 import 'package:zwizu_zadanie/constants.dart';
+import 'package:zwizu_zadanie/ui/text_styles.dart';
 import 'package:zwizu_zadanie/ui/widgets/text_arrow_button_widget.dart';
 
 class PromoContainerTop extends StatelessWidget {
@@ -9,57 +12,40 @@ class PromoContainerTop extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
-        final styleNearest = TextStyle(
-            fontFamily: "Silka",
-            fontWeight: FontWeight.w600,
-            fontSize: 13,
-            color: kColors["grey30"]
-        );
-
-        final styleName = TextStyle(
-            fontFamily: "Silka",
-            fontWeight: FontWeight.w700,
-            fontSize: 32,
-            color: kColors["white"]
-        );
-
-        final styleDate = TextStyle(
-            fontFamily: "Silka",
-            fontWeight: FontWeight.w300,
-            fontSize: 16,
-            color: kColors["white"]
-        );
-
-
-        return Container(
-            padding: kAppPadding,
-            color: kColors["black"],
-            child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                    Text(
-                        "NEJBLIZSI TURNAJ",
-                        style: styleNearest
-                    ),
-                    Column(
+        return Consumer<PromoInfoProvider>(
+            builder: (context, provider, child) {
+                return Container(
+                    padding: kAppPadding,
+                    color: kColors["black"],
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                             Text(
-                                "TURNAJ 22",
-                                style: styleName
+                                kTexts["tournament_nearest"]!,
+                                style: styleTournamentNearest
                             ),
-                            Text(
-                                "So 07.07.2022 v 19:00",
-                                style: styleDate
+                            Column(
+                                children: [
+                                    Text(
+                                        provider.tournamentName!,
+                                        style: styleTournamentName
+                                    ),
+                                    Text(
+                                        provider.tournamentDateString!,
+                                        style: styleTournamentDate
+                                    ),
+                                ],
                             ),
+                            TextArrowButton(
+                                text: kTexts["tournament_info"], 
+                                textSize: 17,
+                                textWeight: FontWeight.w600
+                            )
                         ],
                     ),
-                    TextArrowButton(
-                        text: kTexts["tournament_info"], 
-                        textSize: 17,
-                        textWeight: FontWeight.w600
-                    )
-                ],
-            ),
+                );
+            }
         );
+
     }
 }

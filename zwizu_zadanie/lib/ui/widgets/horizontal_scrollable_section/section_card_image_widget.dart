@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zwizu_zadanie/constants.dart';
 
 class SectionCardImage extends StatelessWidget {
     final String? image;
@@ -10,7 +11,7 @@ class SectionCardImage extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         return Container(
-            height: 160,
+            height: kCardHeight,
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(3.0)),

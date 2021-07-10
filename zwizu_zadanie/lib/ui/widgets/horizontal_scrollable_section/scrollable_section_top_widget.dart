@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zwizu_zadanie/constants.dart';
+import 'package:zwizu_zadanie/ui/text_styles.dart';
 import 'package:zwizu_zadanie/ui/widgets/text_arrow_button_widget.dart';
 
 
@@ -12,13 +13,6 @@ class ScrollableSectionTop extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
-        final styleName = TextStyle(
-            fontFamily: "Silka",
-            fontWeight: FontWeight.w700,
-            fontSize: 22,
-            color: kColors["white"]
-        );
-
         return Padding(
             padding: kAppPadding,
             child: Row(
@@ -26,7 +20,7 @@ class ScrollableSectionTop extends StatelessWidget {
                 children: [
                     Text(
                         this.text!,
-                        style: styleName
+                        style: styleSectionName
                     ),
                     TextArrowButton(
                         text: kTexts["more"]!,

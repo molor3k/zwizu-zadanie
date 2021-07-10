@@ -1,9 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:zwizu_zadanie/backend/providers/players_info_provider.dart';
+import 'package:zwizu_zadanie/backend/providers/video_info_provider.dart';
 import 'package:zwizu_zadanie/constants.dart';
-import 'package:zwizu_zadanie/ui/widgets/cards/player_card_widget.dart';
-import 'package:zwizu_zadanie/ui/widgets/cards/video_card_widget.dart';
 import 'package:zwizu_zadanie/ui/widgets/horizontal_scrollable_section/scrollable_section_widget.dart';
 import 'package:zwizu_zadanie/ui/widgets/promo_container/promo_container_widget.dart';
 
@@ -34,14 +35,24 @@ class MainView extends StatelessWidget {
                             ],
                         ),
                     ),
-                    ScrollableSection(
-                        topText: kTexts["now"],
-                        card: VideoCard()
+                    Consumer<VideoInfoProvider>(
+                        builder: (context, provider, child) {
+                            return ScrollableSection(
+                                topText: kTexts["now"],
+                                cardType: SectionCardType.Video,
+                                list: provider.videos
+                            );
+                        }
                     ),
-                    ScrollableSection(
-                        topText: kTexts["players"],
-                        card: PlayerCard()
-                    ),
+                    Consumer<PlayersInfoProvider>(
+                        builder: (context, provider, child) {
+                            return ScrollableSection(
+                                topText: kTexts["players"],
+                                cardType: SectionCardType.Player,
+                                list: provider.players
+                            );
+                        }
+                    )
                 ],
             )
         );

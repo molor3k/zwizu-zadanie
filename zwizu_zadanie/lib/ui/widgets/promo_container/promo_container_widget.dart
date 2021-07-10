@@ -7,13 +7,12 @@ class PromoContainer extends StatelessWidget {
     @override
     Widget build(BuildContext context) {
         return Container(
-            margin: kAppPadding,
             height: kPromoContainerHeight,
             width: double.infinity,
+            margin: kAppPadding,
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(10.0))
             ),
             child: Column(
                 children: [

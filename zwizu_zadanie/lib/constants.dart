@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+enum SectionCardType {
+    Player,
+    Video
+}
+
 const kColors = {
     "black": const Color(0xff161616),
     "white": const Color(0xffffffff),
@@ -9,14 +14,19 @@ const kColors = {
 };
 
 const kTexts = {
-    "more": "Vice",
-    "now": "Prave leti",
-    "players": "Hraci",
-    "tournament_info": "Vice informaci o turnaje"
+    "more": "Více",
+    "now": "Právě letí",
+    "players": "Hráči",
+    "tournament_nearest": "NEJBLIŽŠÍ TURNAJ",
+    "tournament_info": "Více informací o turnaje",
+    "tickets": "Vstupenky",
+    "tickets_buy": "Koupit ZZP"
 };
+
 
 const kAppPadding = EdgeInsets.all(16.0);
 const kSectionTextPadding = EdgeInsets.only(top: 7.0, bottom: 3.0);
 
+const kCardHeight = 180.0;
 const kPromoContainerHeight = 280.0;
-const kHorizontalListHeight = 230.0;
+const kHorizontalListHeight = 260.0;

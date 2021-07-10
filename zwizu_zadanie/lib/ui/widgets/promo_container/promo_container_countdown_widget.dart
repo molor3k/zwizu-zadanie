@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:zwizu_zadanie/constants.dart';
+import 'package:provider/provider.dart';
+import 'package:zwizu_zadanie/backend/models/countdown_model.dart';
+import 'package:zwizu_zadanie/backend/providers/promo_info_provider.dart';
+import 'package:zwizu_zadanie/ui/text_styles.dart';
 
 class PromoContainerCountdown extends StatelessWidget {
     const PromoContainerCountdown({ 
@@ -8,55 +11,50 @@ class PromoContainerCountdown extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
-        final styleNumber = TextStyle(
-            fontFamily: "Silka",
-            fontWeight: FontWeight.w600,
-            fontSize: 22,
-            color: kColors["black"]
+        return Consumer<PromoInfoProvider>(
+            builder: (context, provider, child) {
+                CountdownModel countdown = provider.timeUntilTournament!;
+                
+                return RichText(
+                    text: TextSpan(
+                        children: <TextSpan>[
+                            TextSpan(
+                                text: countdown.days.toString(),
+                                style: styleCountdownNumber
+                            ),
+                            TextSpan(
+                                text: ' dni ',
+                                style: styleCountdownText
+                            ),
+                            TextSpan(
+                                text: countdown.hours.toString(),
+                                style: styleCountdownNumber
+                            ),
+                            TextSpan(
+                                text: ' hod ',
+                                style: styleCountdownText
+                            ),
+                            TextSpan(
+                                text: countdown.minutes.toString(),
+                                style: styleCountdownNumber
+                            ),
+                            TextSpan(
+                                text: ' min ',
+                                style: styleCountdownText
+                            ),
+                            TextSpan(
+                                text: countdown.seconds.toString(),
+                                style: styleCountdownNumber
+                            ),
+                            TextSpan(
+                                text: ' sek',
+                                style: styleCountdownText
+                            ),
+                        ]
+                    ),
+                );
+            }
         );
-
-        final styleText = TextStyle(
-            fontFamily: "Silka",
-            fontWeight: FontWeight.w500,
-            fontSize: 15,
-            color: kColors["grey50"],
-        );
-
-        return RichText(
-            text: TextSpan(
-                text: '12',
-                style: styleNumber,
-                children: <TextSpan>[
-                    TextSpan(
-                        text: ' dni ',
-                        style: styleText
-                    ),
-                    TextSpan(
-                        text: '15',
-                        style: styleNumber
-                    ),
-                    TextSpan(
-                        text: ' hod ',
-                        style: styleText
-                    ),
-                    TextSpan(
-                        text: '24',
-                        style: styleNumber
-                    ),
-                    TextSpan(
-                        text: ' min ',
-                        style: styleText
-                    ),
-                    TextSpan(
-                        text: '05',
-                        style: styleNumber
-                    ),
-                    TextSpan(
-                        text: ' sek',
-                        style: styleText
-                    ),
-                ]
-            ),
-        );
+        
     }
 }
