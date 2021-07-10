@@ -8,5 +8,12 @@ const kColors = {
     "grey30": const Color(0xffc6c6c6)
 };
 
+const kTexts = {
+    "more": "Vice",
+    "now": "Prave leti",
+    "players": "Hraci"
+};
+
 const kAppPadding = EdgeInsets.all(16.0);
-const kHorizontalListHeight = 300.0;
+const kSectionTextPadding = EdgeInsets.only(top: 7.0, bottom: 3.0);
+const kHorizontalListHeight = 230.0;

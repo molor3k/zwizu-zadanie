@@ -13,6 +13,7 @@ class ScrollableSectionList extends StatelessWidget {
         return Container(
             height: kHorizontalListHeight,
             child: ListView.separated(
+                physics: BouncingScrollPhysics(),
                 padding: EdgeInsets.only(left: 16.0),
                 scrollDirection: Axis.horizontal,
                 itemCount: 10,

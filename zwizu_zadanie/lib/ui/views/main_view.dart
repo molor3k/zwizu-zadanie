@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:zwizu_zadanie/constants.dart';
 import 'package:zwizu_zadanie/ui/widgets/cards/player_card_widget.dart';
 import 'package:zwizu_zadanie/ui/widgets/cards/video_card_widget.dart';
-import 'package:zwizu_zadanie/ui/widgets/horizontal%20scrolled%20section/scrollable_section_widget.dart';
+import 'package:zwizu_zadanie/ui/widgets/horizontal_scrollable_section/scrollable_section_widget.dart';
 import 'package:zwizu_zadanie/ui/widgets/promo_container_widget.dart';
 
 class MainView extends StatelessWidget {
@@ -10,6 +10,7 @@ class MainView extends StatelessWidget {
     Widget build(BuildContext context) {
         return Scaffold(
             body: CustomScrollView(
+                physics: BouncingScrollPhysics(),
                 slivers: [
                     SliverToBoxAdapter(
                         child: Stack(
@@ -29,11 +30,11 @@ class MainView extends StatelessWidget {
                         ),
                     ),
                     ScrollableSection(
-                        topText: "Prave leti",
+                        topText: kTexts["now"],
                         card: VideoCard()
                     ),
                     ScrollableSection(
-                        topText: "Hraci",
+                        topText: kTexts["players"],
                         card: PlayerCard()
                     ),
                 ],

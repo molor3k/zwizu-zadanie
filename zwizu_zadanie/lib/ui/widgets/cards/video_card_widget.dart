@@ -9,17 +9,17 @@ class VideoCard extends StatelessWidget {
 
     @override
     Widget build(BuildContext context) {
-        final tournamentNameStyle = TextStyle(
+        final styleCategory = TextStyle(
             fontFamily: "Silka",
             fontWeight: FontWeight.w600,
-            fontSize: 14,
+            fontSize: 11,
             color: kColors["grey50"],
         );
 
-        final videoNameStyle = TextStyle(
+        final styleVideo = TextStyle(
             fontFamily: "Silka",
             fontWeight: FontWeight.w600,
-            fontSize: 22,
+            fontSize: 17,
             color: kColors["white"]
         );
 
@@ -32,15 +32,15 @@ class VideoCard extends StatelessWidget {
                     image: "assets/images/tournament_small.jpg"
                 ),
                 Padding(
-                    padding: EdgeInsets.only(top: 10.0, bottom: 5.0),
+                    padding: kSectionTextPadding,
                     child: Text(
                         "TURNAJ 20",
-                        style: tournamentNameStyle
+                        style: styleCategory
                     )
                 ),
                 Text(
                     "Souboj o trun",
-                    style: videoNameStyle
+                    style: styleVideo
                 ),
             ],
         );
