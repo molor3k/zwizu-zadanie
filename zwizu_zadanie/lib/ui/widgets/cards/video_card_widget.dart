@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zwizu_zadanie/constants.dart';
-import 'package:zwizu_zadanie/ui/widgets/section_card_image_widget.dart';
+import 'package:zwizu_zadanie/ui/widgets/horizontal_scrollable_section/section_card_image_widget.dart';
 
 class VideoCard extends StatelessWidget {
     const VideoCard({

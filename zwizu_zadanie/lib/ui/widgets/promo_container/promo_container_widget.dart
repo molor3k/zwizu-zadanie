@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zwizu_zadanie/constants.dart';
+import 'package:zwizu_zadanie/ui/widgets/promo_container/promo_container_bottom_widget.dart';
+import 'package:zwizu_zadanie/ui/widgets/promo_container/promo_container_top_widget.dart';
 
 class PromoContainer extends StatelessWidget {
     @override
@@ -17,15 +19,11 @@ class PromoContainer extends StatelessWidget {
                 children: [
                     Expanded(
                         flex: 3,
-                        child: Container(
-                            color: kColors["black"],
-                        )
+                        child: PromoContainerTop()
                     ),
                     Expanded(
                         flex: 2,
-                        child: Container(
-                            color: kColors["yellow"],
-                        )
+                        child: PromoContainerBottom()
                     ),
                 ],
             ),

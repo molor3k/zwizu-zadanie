@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zwizu_zadanie/constants.dart';
-import 'package:zwizu_zadanie/ui/widgets/horizontal_scrollable_section/text_arrow_button_widget.dart';
+import 'package:zwizu_zadanie/ui/widgets/text_arrow_button_widget.dart';
 
 
 class ScrollableSectionTop extends StatelessWidget {
@@ -19,13 +19,6 @@ class ScrollableSectionTop extends StatelessWidget {
             color: kColors["white"]
         );
 
-        final styleMore = TextStyle(
-            fontFamily: "Silka",
-            fontWeight: FontWeight.w500,
-            fontSize: 17,
-            color: kColors["yellow"]
-        );
-
         return Padding(
             padding: kAppPadding,
             child: Row(
@@ -37,7 +30,8 @@ class ScrollableSectionTop extends StatelessWidget {
                     ),
                     TextArrowButton(
                         text: kTexts["more"]!,
-                        textStyle: styleMore,
+                        textSize: 16,
+                        textWeight: FontWeight.w500
                     )
                 ],
             )
