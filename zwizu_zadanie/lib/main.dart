@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:zwizu_zadanie/backend/providers/players_info_provider.dart';
-import 'package:zwizu_zadanie/backend/providers/promo_info_provider.dart';
-import 'package:zwizu_zadanie/backend/providers/video_info_provider.dart';
 import 'package:zwizu_zadanie/constants.dart';
-import 'package:zwizu_zadanie/ui/views/main_view.dart';
+import 'package:zwizu_zadanie/core/providers/players_info_provider.dart';
+import 'package:zwizu_zadanie/core/providers/promo_info_provider.dart';
+import 'package:zwizu_zadanie/core/providers/videos_info_provider.dart';
+import 'package:zwizu_zadanie/views/main_view.dart';
 
 void main() {
     runApp(
@@ -23,7 +23,7 @@ class SoccerApp extends StatefulWidget {
 
 class _SoccerAppState extends State<SoccerApp> {
     PromoInfoProvider? _promoInfoProvider;
-    VideoInfoProvider? _videoInfoProvider;
+    VideosInfoProvider? _videosInfoProvider;
     PlayersInfoProvider? _playersInfoProvider;
 
     @override
@@ -33,8 +33,8 @@ class _SoccerAppState extends State<SoccerApp> {
         _promoInfoProvider = PromoInfoProvider();
         _promoInfoProvider!.init();
 
-        _videoInfoProvider = VideoInfoProvider();
-        _videoInfoProvider!.init();
+        _videosInfoProvider = VideosInfoProvider();
+        _videosInfoProvider!.init();
 
         _playersInfoProvider = PlayersInfoProvider();
         _playersInfoProvider!.init();
@@ -54,7 +54,7 @@ class _SoccerAppState extends State<SoccerApp> {
                         value: _promoInfoProvider!
                     ),
                     ChangeNotifierProvider.value(
-                        value: _videoInfoProvider!
+                        value: _videosInfoProvider!
                     ),
                     ChangeNotifierProvider.value(
                         value: _playersInfoProvider!
