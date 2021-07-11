@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:zwizu_zadanie/backend/models/video_model.dart';
+import 'package:zwizu_zadanie/backend/services/video_info_service.dart';
 
 class VideoInfoProvider extends ChangeNotifier {
-    List<VideoModel> videosList = [
-        VideoModel(
-            "TURNAJ 20",
-            "Souboj o trůn"
-        ),
-        VideoModel(
-            "HATTRICK",
-            "V kůži bojovnikov \nFISHER"
-        )
-    ]; 
+    VideoInfoService? _service;
+    List<VideoModel>? _videosList;
 
-    List<VideoModel> get videos => videosList;
+    List<VideoModel> get videos => _videosList!;
+
+    init() {
+        _service = new VideoInfoService();
+        _videosList = _service!.fetchVideos();
+    }
 }

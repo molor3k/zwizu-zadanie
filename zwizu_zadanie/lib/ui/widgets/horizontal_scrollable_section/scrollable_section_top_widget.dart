@@ -6,6 +6,7 @@ import 'package:zwizu_zadanie/ui/widgets/text_arrow_button_widget.dart';
 
 class ScrollableSectionTop extends StatelessWidget {
     final String? text;
+    
     const ScrollableSectionTop({ 
         Key? key,
         @required this.text

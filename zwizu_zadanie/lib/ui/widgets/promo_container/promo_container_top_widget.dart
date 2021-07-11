@@ -16,7 +16,7 @@ class PromoContainerTop extends StatelessWidget {
             builder: (context, provider, child) {
                 return Container(
                     padding: kAppPadding,
-                    color: kColors["black"],
+                    color: kColors["black"]!.withOpacity(0.6),
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [

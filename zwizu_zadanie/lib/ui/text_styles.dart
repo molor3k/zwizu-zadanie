@@ -31,6 +31,13 @@ final styleVideoName = TextStyle(
     color: kColors["white"]
 );
 
+final stylePremium = TextStyle(
+    fontFamily: "Silka",
+    fontWeight: FontWeight.w600,
+    fontSize: 13,
+    color: kColors["white"]
+);
+
 // ScrollableSectionTop
 final styleSectionName = TextStyle(
     fontFamily: "Silka",
@@ -51,7 +58,7 @@ final styleCountdownText = TextStyle(
     fontFamily: "Silka",
     fontWeight: FontWeight.w500,
     fontSize: 15,
-    color: kColors["black"],
+    color: kColors["grey50"],
 );
 
 // PromoContainerTop

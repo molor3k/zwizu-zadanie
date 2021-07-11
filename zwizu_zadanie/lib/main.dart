@@ -23,12 +23,21 @@ class SoccerApp extends StatefulWidget {
 
 class _SoccerAppState extends State<SoccerApp> {
     PromoInfoProvider? _promoInfoProvider;
+    VideoInfoProvider? _videoInfoProvider;
+    PlayersInfoProvider? _playersInfoProvider;
 
     @override
     void initState() {
         super.initState();
+
         _promoInfoProvider = PromoInfoProvider();
         _promoInfoProvider!.init();
+
+        _videoInfoProvider = VideoInfoProvider();
+        _videoInfoProvider!.init();
+
+        _playersInfoProvider = PlayersInfoProvider();
+        _playersInfoProvider!.init();
     }
     
     @override
@@ -44,11 +53,11 @@ class _SoccerAppState extends State<SoccerApp> {
                     ChangeNotifierProvider.value(
                         value: _promoInfoProvider!
                     ),
-                    ChangeNotifierProvider(
-                        create: (_) => VideoInfoProvider()
+                    ChangeNotifierProvider.value(
+                        value: _videoInfoProvider!
                     ),
-                    ChangeNotifierProvider(
-                        create: (_) => PlayersInfoProvider()
+                    ChangeNotifierProvider.value(
+                        value: _playersInfoProvider!
                     ),
                 ],
                 child: MainView(),

@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:zwizu_zadanie/backend/models/section_settings_model.dart';
 import 'package:zwizu_zadanie/constants.dart';
-import 'package:zwizu_zadanie/ui/widgets/cards/section_card_widget.dart';
+import 'package:zwizu_zadanie/ui/widgets/section_card/section_card_widget.dart';
 
 class ScrollableSectionList extends StatelessWidget {
     final SectionCardType? cardType;
+    final SectionSettingsModel? sectionSettings;
     final List? list;
+    
     const ScrollableSectionList({
         Key? key,
         @required this.cardType,
+        @required this.sectionSettings,
         @required this.list
     }) : super(key: key);
 
@@ -17,16 +21,16 @@ class ScrollableSectionList extends StatelessWidget {
             height: kHorizontalListHeight,
             child: ListView.separated(
                 physics: BouncingScrollPhysics(),
-                padding: EdgeInsets.only(left: 16.0),
+                padding: kSectionListPadding,
                 scrollDirection: Axis.horizontal,
+                separatorBuilder: (context, index) => kSectionListSeparator,
+               
                 itemCount: this.list!.length,
-                separatorBuilder: (context, index) => SizedBox(
-                    width: 10,
-                ),
                 itemBuilder: (context, index) {
                     return SectionCard(
                         cardType: this.cardType, 
-                        info: this.list![index]
+                        info: this.list![index],
+                        sectionSettings: this.sectionSettings,
                     );
                 }
             )

@@ -2,11 +2,13 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:zwizu_zadanie/backend/models/section_settings_model.dart';
 import 'package:zwizu_zadanie/backend/providers/players_info_provider.dart';
 import 'package:zwizu_zadanie/backend/providers/video_info_provider.dart';
 import 'package:zwizu_zadanie/constants.dart';
+import 'package:zwizu_zadanie/ui/text_styles.dart';
+import 'package:zwizu_zadanie/ui/widgets/app_header_widget.dart';
 import 'package:zwizu_zadanie/ui/widgets/horizontal_scrollable_section/scrollable_section_widget.dart';
-import 'package:zwizu_zadanie/ui/widgets/promo_container/promo_container_widget.dart';
 
 class MainView extends StatelessWidget {
     @override
@@ -16,31 +18,19 @@ class MainView extends StatelessWidget {
                 physics: BouncingScrollPhysics(),
                 slivers: [
                     SliverToBoxAdapter(
-                        child: Stack(
-                            clipBehavior: Clip.none,
-                            children: [
-                                Container(
-                                    clipBehavior: Clip.none,
-                                    height: 500,
-                                    child: Image.asset(
-                                        "assets/images/tournament.jpg",
-                                        fit: BoxFit.cover,
-                                    )
-                                ),
-                                Container(
-                                    clipBehavior: Clip.none,
-                                    margin: EdgeInsets.only(top: 255),
-                                    child: PromoContainer()
-                                )
-                            ],
-                        ),
+                        child: AppHeader()
                     ),
                     Consumer<VideoInfoProvider>(
                         builder: (context, provider, child) {
                             return ScrollableSection(
                                 topText: kTexts["now"],
+                                list: provider.videos,
                                 cardType: SectionCardType.Video,
-                                list: provider.videos
+                                sectionSettings: SectionSettingsModel(
+                                    CrossAxisAlignment.start,
+                                    styleVideoCategory,
+                                    styleVideoName
+                                )
                             );
                         }
                     ),
@@ -48,8 +38,13 @@ class MainView extends StatelessWidget {
                         builder: (context, provider, child) {
                             return ScrollableSection(
                                 topText: kTexts["players"],
+                                list: provider.players,
                                 cardType: SectionCardType.Player,
-                                list: provider.players
+                                sectionSettings: SectionSettingsModel(
+                                    CrossAxisAlignment.center,
+                                    stylePlayerName,
+                                    stylePlayerLabel
+                                ),
                             );
                         }
                     )

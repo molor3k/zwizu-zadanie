@@ -2,20 +2,20 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:zwizu_zadanie/backend/models/countdown_model.dart';
-import 'package:zwizu_zadanie/backend/models/tournament_model.dart';
+import 'package:zwizu_zadanie/backend/services/promo_info_service.dart';
 
 class PromoInfoProvider extends ChangeNotifier {
-    CountdownModel? timeUntilTournament = CountdownModel(0, 0, 0, 0);
-    TournamentModel currentTournament = TournamentModel(
-        "TURNAJ 22",
-        DateTime(2022, 7, 9, 20, 0)
-    );
+    PromoInfoService? _service;
+    CountdownModel? _timeUntilTournament = CountdownModel(0, 0, 0, 0);
 
-    String? get tournamentName => currentTournament.tournamentName;
-    DateTime? get tournamentDate => currentTournament.tournamentDate;
-    String? get tournamentDateString => dateToString(this.tournamentDate!);
+    String? get tournamentName => _service!.tournamentName;
+    DateTime? get tournamentDate => _service!.tournamentDate;
+    String? get tournamentDateString => dateToString(tournamentDate!);
+    CountdownModel? get timeUntilTournament => _timeUntilTournament;
 
     init() {
+        _service = new PromoInfoService();
+
         Timer.periodic(Duration(seconds: 1), (_) {
             updateCountdownTimer();
         });
@@ -43,7 +43,7 @@ class PromoInfoProvider extends ChangeNotifier {
         DateTime currentDateTime = DateTime.now();
         Duration duration = tournamentDate!.difference(currentDateTime);
 
-        timeUntilTournament = CountdownModel(
+        _timeUntilTournament = CountdownModel(
             duration.inDays,
             Duration(hours: duration.inHours - (duration.inDays * 24)).inHours,
             Duration(minutes: duration.inMinutes - (duration.inHours * 60)).inMinutes,

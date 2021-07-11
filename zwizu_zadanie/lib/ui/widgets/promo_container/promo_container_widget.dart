@@ -1,9 +1,15 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:zwizu_zadanie/constants.dart';
 import 'package:zwizu_zadanie/ui/widgets/promo_container/promo_container_bottom_widget.dart';
 import 'package:zwizu_zadanie/ui/widgets/promo_container/promo_container_top_widget.dart';
 
 class PromoContainer extends StatelessWidget {
+    const PromoContainer({
+        Key? key
+    }) : super(key: key);
+
     @override
     Widget build(BuildContext context) {
         return Container(
@@ -18,7 +24,10 @@ class PromoContainer extends StatelessWidget {
                 children: [
                     Expanded(
                         flex: 3,
-                        child: PromoContainerTop()
+                        child: BackdropFilter(
+                            filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+                            child: PromoContainerTop()
+                        )
                     ),
                     Expanded(
                         flex: 2,

@@ -20,13 +20,22 @@ const kTexts = {
     "tournament_nearest": "NEJBLIŽŠÍ TURNAJ",
     "tournament_info": "Více informací o turnaje",
     "tickets": "Vstupenky",
-    "tickets_buy": "Koupit ZZP"
+    "tickets_buy": "Koupit ZZP",
+    "premium": "Premium"
 };
 
+const kSectionListSeparator = const SizedBox(width: 10);
 
-const kAppPadding = EdgeInsets.all(16.0);
-const kSectionTextPadding = EdgeInsets.only(top: 7.0, bottom: 3.0);
+const kAppPadding = const EdgeInsets.all(16.0);
+const kVideoPremiumPadding = const EdgeInsets.symmetric(horizontal: 4.0, vertical: 1.0);
+const kVideoPremiumMargin = const EdgeInsets.all(8.0);
+const kPromoContainerPadding = const EdgeInsets.only(top: 255.0);
+const kSectionListPadding = const EdgeInsets.only(left: 16.0);
+const kSectionTextPadding = const EdgeInsets.only(top: 7.0, bottom: 3.0);
 
-const kCardHeight = 180.0;
+const kBackgroundHeight = 500.0;
+const kCardHeight = 170.0;
 const kPromoContainerHeight = 280.0;
 const kHorizontalListHeight = 260.0;
+
+const kSectionContainerSmoothRadius = const BorderRadius.all(Radius.circular(3.0));

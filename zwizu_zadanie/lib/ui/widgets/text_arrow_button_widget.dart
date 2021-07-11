@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:zwizu_zadanie/constants.dart';
+import 'package:zwizu_zadanie/ui/views/details_view.dart';
 
 class TextArrowButton extends StatelessWidget {
     final String? text;
     final double? textSize;
     final FontWeight? textWeight;
+    
     const TextArrowButton({ 
         Key? key,
         @required this.text,
@@ -23,7 +25,10 @@ class TextArrowButton extends StatelessWidget {
 
         return GestureDetector(
             onTap: () {
-                print("text arrow button");
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => DetailsView()),
+                );
             },
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

@@ -14,11 +14,14 @@ class SectionCardImage extends StatelessWidget {
             height: kCardHeight,
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(3.0)),
+                borderRadius: kSectionContainerSmoothRadius,
             ),
-            child: Image.asset(
-                this.image!,
-                fit: BoxFit.fill,
+            child: AspectRatio(
+                aspectRatio: 0.7,
+                child: Image.asset(
+                    this.image!,
+                    fit: BoxFit.fill,
+                )
             )
         );
     }
