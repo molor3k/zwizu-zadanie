@@ -15,7 +15,7 @@ const kColors = {
 
 const kTexts = {
     "more": "Více",
-    "now": "Právě letí",
+    "videos_now": "Právě letí",
     "players": "Hráči",
     "tournament_nearest": "NEJBLIŽŠÍ TURNAJ",
     "tournament_info": "Více informací o turnaje",

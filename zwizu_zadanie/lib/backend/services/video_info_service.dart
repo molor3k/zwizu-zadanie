@@ -6,15 +6,13 @@ class VideoInfoService {
             "assets/images/tournament_small.jpg",
             "TURNAJ 20",
             "Souboj o trůn",
-            true, 
-            false
+            isPremium: true, 
         ),
         VideoModel(
             "assets/images/tournament_small.jpg",
             "HATTRICK",
             "V kůži bojovnikov \nFISHER",
-            false, 
-            false
+            isPremium: false, 
         )
     ]; 
 

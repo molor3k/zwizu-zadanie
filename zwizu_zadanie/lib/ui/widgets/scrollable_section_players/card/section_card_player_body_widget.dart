@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:zwizu_zadanie/constants.dart';
 
-class SectionCardImage extends StatelessWidget {
+class SectionCardPlayerBody extends StatelessWidget {
     final String? image;
-    const SectionCardImage({
+    
+    const SectionCardPlayerBody({
         Key? key,
         @required this.image
     }) : super(key: key);

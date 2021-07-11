@@ -4,10 +4,10 @@ import 'package:zwizu_zadanie/ui/text_styles.dart';
 import 'package:zwizu_zadanie/ui/widgets/text_arrow_button_widget.dart';
 
 
-class ScrollableSectionTop extends StatelessWidget {
+class ScrollableSectionHeader extends StatelessWidget {
     final String? text;
     
-    const ScrollableSectionTop({ 
+    const ScrollableSectionHeader({ 
         Key? key,
         @required this.text
     }) : super(key: key);

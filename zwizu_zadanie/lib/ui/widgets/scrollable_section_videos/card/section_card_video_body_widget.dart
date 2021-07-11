@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:zwizu_zadanie/backend/models/video_model.dart';
 import 'package:zwizu_zadanie/constants.dart';
-import 'package:zwizu_zadanie/ui/widgets/section_card/video/video_play_button_widget.dart';
-import 'package:zwizu_zadanie/ui/widgets/section_card/video/video_premium_label_widget.dart';
+import 'package:zwizu_zadanie/ui/widgets/scrollable_section_videos/card/etc/video_play_button_widget.dart';
+import 'package:zwizu_zadanie/ui/widgets/scrollable_section_videos/card/etc/video_premium_label_widget.dart';
 
-class SectionCardVideo extends StatelessWidget {
-    final VideoModel? info;
-    const SectionCardVideo({
+class SectionCardVideoBody extends StatelessWidget {
+    final String? image;
+    final bool? isPremium;
+    
+    const SectionCardVideoBody({
         Key? key,
-        @required this.info
+        @required this.image,
+        this.isPremium = false
     }) : super(key: key);
 
     @override
@@ -23,7 +25,7 @@ class SectionCardVideo extends StatelessWidget {
                         borderRadius: kSectionContainerSmoothRadius,
                         image: DecorationImage(
                             alignment: Alignment.centerLeft,
-                            image: ExactAssetImage(this.info!.imageURL!)
+                            image: ExactAssetImage(this.image!)
                         )
                     ),
                     child: Stack(
@@ -32,14 +34,13 @@ class SectionCardVideo extends StatelessWidget {
                                 alignment: Alignment.center,
                                 child: VideoPlayButton()
                             ),
-
-                            if (info!.isPremium!) 
-                                Align(
+                            Visibility(
+                                visible: this.isPremium!,
+                                child: Align(
                                     alignment: Alignment.topRight,
                                     child: VideoPremiumLabel()
                                 )
-                            else
-                                Container()
+                            )
                         ],
                     )
                 )

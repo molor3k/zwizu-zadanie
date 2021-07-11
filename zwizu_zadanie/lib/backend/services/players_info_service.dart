@@ -1,25 +1,25 @@
-import 'package:zwizu_zadanie/backend/models/section_list_element_model.dart';
+import 'package:zwizu_zadanie/backend/models/player_model.dart';
 
 class PlayersInfoService {
-    List<SectionListElementModel> _playersList = [
-        SectionListElementModel(
+    List<PlayerModel> _playersList = [
+        PlayerModel(
             "assets/images/player_small.jpg",
             "Jon Doe",
             "CHAMPION"
         ),
-        SectionListElementModel(
+        PlayerModel(
             "assets/images/player_small.jpg",
             "Jack Doe",
             "1. MISTO"
         ),
-        SectionListElementModel(
+        PlayerModel(
             "assets/images/player_small.jpg",
             "John Doe",
             "2. MISTO"
         ),
     ]; 
 
-    List<SectionListElementModel> fetchPlayers() {
+    List<PlayerModel> fetchPlayers() {
         return _playersList;
     }
 }
